@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SearchEngine</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<div class="page-header">
+			<h1>住所検索</h1>
+			<p th:if="${resultMessage}" th:text="${resultMessage}">result
+				message</p>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<form action="/search" th:action="@{/search}" method="get">
+					<div class="input-group">
+						<input type="text" name="keyword" class="form-control" th:value="${keyword}"
+							placeholder="住所を入力してください" /> <span class="input-group-btn">
+							<input class="btn btn-outline-secondary" type="submit" value="検索" />
+						</span>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<form action="/createindex" th:action="@{/createindex}" method="get">
+					<div class="input-group">
+						<span class="input-group-btn"> <input
+							class="btn btn-outline-secondary" type="submit" value="インデックス再作成" />
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table" th:if="${searchList}">
+          <tbody>
+            <tr th:each="item : ${searchList}">
+              <td th:text="${item}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+	</div>
+</body>
+</html>

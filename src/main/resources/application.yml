@@ -1,0 +1,12 @@
+server:
+  port: 9000
+
+spring:
+  thymeleaf:
+    enabled: true
+    cache: false
+    
+settings:
+  zipurl: https://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
+  workdir: /Users/yokimoto/sts/workspace-spring-tool-suite-4-4.0.2.RELEASE/SearchEngine/
+   
